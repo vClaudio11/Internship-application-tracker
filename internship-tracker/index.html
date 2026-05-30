@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>internship-tracker</title>
+
+  <script type="module" src="/src/main.ts"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Stack+Sans+Text:wght@200..700&display=swap" rel="stylesheet">
+</head>
+  <body>
+<div class="header">
+        <h1>Internship application tracker</h1>
+        <p class="tagline">welcome to your application tracker</p>
+    </div>
+    <div class="dashboard">
+        <!-- main list for creation and display of all application items -->
+        <section class="card application-list">
+            <h2>Full-list</h2>
+            <div class="applicationList-inner">
+                <p>placeholder</p>
+            </div>
+        </section>
+
+        <!-- list showing "to apply", "applied", "interview" for internships -->
+        <section class="card inProgress">
+            <h2>In progress</h2>
+            <div class="inProgress-inner">
+                <ul class="inProgress-list">
+
+                </ul>
+            </div>
+        </section>
+
+        <!-- list showing completed / rejected applications -->
+        <section class="card resolved">
+            <h2>Completed</h2>
+            <div class="resolved-inner">
+                <ul class="resolved-list">
+
+                </ul>
+            </div>
+        </section>
+
+        <!-- completed, working on, total number of applications -->
+        <section class="card summary">
+            <h2>Summary</h2>
+            <div class="summary-inner">
+                <p id="appliedTo-Count">Applied to</p>
+                <p id="inProgress-Count">In progress</p>
+                <p id="completed-Count">Completed</p>
+            </div>
+        </section>
+
+        <!-- unique company list -->
+        <section class="card company-list">
+            <h2>Companies</h2>
+            <ul class="company-inner">
+
+            </ul>
+        </section>
+    </div>
+  </body>
+</html>
