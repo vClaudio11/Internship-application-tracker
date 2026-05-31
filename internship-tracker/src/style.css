@@ -80,11 +80,11 @@ body {
 }
 
 /* Define modal form CSS */
-.form {
+.form-inner {
     margin-right: var(--space-lg);
 }
 
-.form form {
+.form-inner form {
     display: flex;
     flex-direction: row;
     gap: var(--space-md);
@@ -124,7 +124,7 @@ body {
 
 
 
-/* Hidden states  */
+/* Hidden classes */
 .hidden {
     display: none;
 }
