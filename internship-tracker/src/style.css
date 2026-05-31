@@ -80,11 +80,11 @@ body {
 }
 
 /* Define modal form CSS */
-.modal-overlay {
+.form {
     margin-right: var(--space-lg);
 }
 
-.modal-overlay form {
+.form form {
     display: flex;
     flex-direction: row;
     gap: var(--space-md);
@@ -95,6 +95,8 @@ body {
 /* Define dashboard grid spaces */
 .dashboard {
     display: grid;
+    flex: 1;
+    min-height: 0;
     gap: var(--space-xl);
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -102,7 +104,6 @@ body {
         "applicationList applicationList summary"
         "applicationList applicationList companyList"
         "resolvedList inProgressList companyList";
-    height: 100vh;
     margin: var(--space-lg) var(--space-lg);
 }
 
@@ -121,4 +122,10 @@ body {
     border: var(--space-xs) solid var(--color-tertiary);
 }
 
+
+
+/* Hidden states  */
+.hidden {
+    display: none;
+}
 
