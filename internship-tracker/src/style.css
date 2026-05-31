@@ -52,22 +52,45 @@ h2 {
 }
 
 body {
-    display: block;
+    display: flex;
+    flex-direction: column;
     background-color: var(--color-background);
-    min-height: 900px;
+    height: 100vh;
     min-width: 1280px;
-    margin: var(--space-xl) var(--space-xl);
+    overflow: hidden;
 }
 
 .header {
-    margin-bottom: var(--space-lg);
-    margin-top: var(--space-xxl);
+    margin: var(--space-md) var(--space-lg);
 }
 
 .tagline {
-    padding: var(--space-lg) 0 0 var(--space-xl);
     color: var(--color-secondary);
+    margin-left: var(--space-lg);
 }
+
+/* Tagline layout */
+.header-inner {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-lg);
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--space-lg);
+}
+
+/* Define modal form CSS */
+.modal-overlay {
+    margin-right: var(--space-lg);
+}
+
+.modal-overlay form {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-md);
+}
+
+
 
 /* Define dashboard grid spaces */
 .dashboard {
@@ -79,7 +102,8 @@ body {
         "applicationList applicationList summary"
         "applicationList applicationList companyList"
         "resolvedList inProgressList companyList";
-    min-height: 100vh;
+    height: 100vh;
+    margin: var(--space-lg) var(--space-lg);
 }
 
 .application-list { grid-area: applicationList;}
