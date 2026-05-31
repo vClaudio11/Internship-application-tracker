@@ -25,7 +25,7 @@ const applications: Application[] = [];
 
 
 
-// Toggle hidden class on form 
+// Toggle hidden class on form from add button and cancel
 addButton.addEventListener('click', () => {
     formInner.classList.remove('hidden');
 });
@@ -34,14 +34,6 @@ cancelButton.addEventListener('click', () => {
     formInner.classList.add('hidden');
 });
 
-
-
-// Add and store application data
-function addApplication(app: Application): void {
-    
-    // Build application from user input
-    
-}
 
 
 // Add and store application data
