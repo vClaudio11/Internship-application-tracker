@@ -12,25 +12,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Stack+Sans+Text:wght@200..700&display=swap" rel="stylesheet">
 </head>
   <body>
-<div class="header">
+      <div class="header">
         <h1>Internship application tracker</h1>
         <p class="tagline">welcome to your application tracker</p>
     </div>
+    
     <div class="dashboard">
         <!-- main list for creation and display of all application items -->
         <section class="card application-list">
             <h2>Full-list</h2>
-            <div class="applicationList-inner">
-                <p>placeholder</p>
-            </div>
+            <button type="button" id="addApplication">+</button>
         </section>
-
+        
         <!-- list showing "to apply", "applied", "interview" for internships -->
         <section class="card inProgress">
             <h2>In progress</h2>
             <div class="inProgress-inner">
                 <ul class="inProgress-list">
-
+                    
                 </ul>
             </div>
         </section>
@@ -40,11 +39,11 @@
             <h2>Completed</h2>
             <div class="resolved-inner">
                 <ul class="resolved-list">
-
+                    
                 </ul>
             </div>
         </section>
-
+        
         <!-- completed, working on, total number of applications -->
         <section class="card summary">
             <h2>Summary</h2>
@@ -54,14 +53,41 @@
                 <p id="completed-Count">Completed</p>
             </div>
         </section>
-
+        
         <!-- unique company list -->
         <section class="card company-list">
             <h2>Companies</h2>
             <ul class="company-inner">
-
+                
             </ul>
         </section>
     </div>
+
+    <!-- Modal HTML for forms -->
+     <div class="hidden modal-overlay">
+        <div class="modal-inner">
+            <form>
+                <label for="company">Company</label>
+                <input type="text" id="company">
+                <label for="jobTitle">Job title</label>
+                <input type="text" id="jobTitle">
+                <label for="location">Location</label>
+                <input type="text" id="location">
+                <label for="deadline">Deadline</label>
+                <input type="date" id="deadline">
+                <!-- Dropdown menu for status -->
+                <label for="status">Completion status</label>
+                <select id="status">
+                    <option value="to apply">To apply</option>
+                    <option value="applied">Applied</option>
+                    <option value="interview">Interview</option>
+                    <option value="offer">Offer</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+                <button type="submit">Submit</button>
+                <button type="button">Cancel</button>
+            </form>
+        </div>
+     </div>
   </body>
 </html>
