@@ -24,11 +24,43 @@ interface Application {
 const applications: Application[] = [];
 
 
-// Toggle hidden class on form with hidden on default
+
+// Toggle hidden class on form 
 addButton.addEventListener('click', () => {
     formInner.classList.remove('hidden');
 });
 
 cancelButton.addEventListener('click', () => {
     formInner.classList.add('hidden');
+});
+
+
+
+// Add and store application data
+function addApplication(app: Application): void {
+    
+    // Build application from user input
+    
+}
+
+
+// Add and store application data
+form.addEventListener('submit', (e) => {
+    // Prevent page reload on submission 
+    e.preventDefault();
+    
+    const newApplication: Application = {
+        id: Date.now(),
+        company: company.value,
+        jobTitle: jobTitle.value,
+        location: location.value,
+        deadline: deadline.value,
+        status: status.value as ApplicationStatus
+    }
+
+    applications.push(newApplication);
+
+    formInner.classList.add("hidden");
+
+    console.log(newApplication);
 });
