@@ -4,7 +4,7 @@ A desktop dashboard for tracking internship applications through every stage of 
 
 🔗 **Live Demo:** [vclaudio11.github.io/Internship-application-tracker](https://vclaudio11.github.io/Internship-application-tracker)
 
-![Dashboard Screenshot](assets/screenshot.png)
+![Dashboard Screenshot](screenshot.png)
 
 ---
 
