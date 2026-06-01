@@ -78,10 +78,16 @@ function renderApplications(): void {
     for (const application of applications) {
         const li = document.createElement("li");
         li.dataset.id = String(application.id);
-        li.innerHTML = `<span>${application.company}</span>
-                        <span>${application.jobTitle}</span>
-                        <span>${application.location}</span>
-                        <span>${application.deadline}</span>
+        li.innerHTML = `<div class="label-container">
+                            <span class="company-label">${application.company}</span>
+                            <div class="label-container-inner>
+                                <span class="jobTitle-label">${application.jobTitle} |</span>
+                                <span class="location-label"> ${application.location} |</span>
+                                <span class="deadline-label"> ${application.deadline}</span>
+                            </div>
+                        </div>
+                        <div class="status-container">
+                        <p>Change status</p>
                         <select class="select-status">
                             <option value="to apply">To apply</option>
                             <option value="applied">Applied</option>
@@ -89,7 +95,8 @@ function renderApplications(): void {
                             <option value="offer">Offer</option>
                             <option value="rejected">Rejected</option>
                             <option value="" disabled selected hidden>${application.status}</option>
-                        </select>`;
+                        </select>
+                        </div>`;
         applicationList.appendChild(li);
     }
     updateSummary();
@@ -156,18 +163,18 @@ function renderStatusPanels(): void {
         if (application.status === "rejected" || application.status === "offer") {
             const li = document.createElement("li");
             li.dataset.id = String(application.id);
-            li.innerHTML = `<span>${application.jobTitle}</span>
-                            <span>${application.company}</span>
-                            <span>${application.location}</span>
-                            <span>${application.deadline}</span>`;
+            li.innerHTML = `<span class="company-panel">${application.company}</span>
+                            <span class="jobTitle-panel">${application.jobTitle} | ${application.status}</span>
+                            <span class="location-panel">${application.location}</span>
+                            <span class="deadline-panel">${application.deadline}</span>`;
             resolvedList.appendChild(li);
         } else {
             const li = document.createElement("li");
             li.dataset.id = String(application.id);
-            li.innerHTML = `<span>${application.jobTitle}</span>
-                            <span>${application.company}</span>
-                            <span>${application.location}</span>
-                            <span>${application.deadline}</span>`;
+            li.innerHTML = `<span class="company-panel">${application.company}</span>
+                            <span class="jobTitle-panel">${application.jobTitle} | ${application.status}</span>
+                            <span class="location-panel">${application.location}</span>
+                            <span class="deadline-panel">${application.deadline}</span>`;
             inProgressList.appendChild(li);
         }
     }

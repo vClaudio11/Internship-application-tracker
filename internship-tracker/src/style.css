@@ -29,8 +29,10 @@
     --space-xxl: 64px;
 
     --font-sm: 1rem;
-    --font-md: 1.2rem;
-    --font-lg: 1.4rem;
+    --font-md: 1.4rem;
+    --font-lg: 1.8rem;
+    --font-xl: 2.2rem;
+    --font-xxl: 2.6rem;
 
     --transition-fast: 0.1s ease;
     --transition-slow:0.3s ease;
@@ -123,6 +125,122 @@ body {
 }
 
 
+
+/* Application list card */
+#application-inner {
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    overflow-y: hidden;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+#application-inner li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--border-radius-sm);
+    padding: var(--space-lg) var(--space-lg);
+}
+
+.label-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.label-container-inner {
+    display: flex;
+    flex-direction: row;
+}
+
+.status-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    justify-content: center;
+}
+
+.company-label {
+    font-size: var(--font-xxl);
+}
+
+.jobTitle-label {
+    color: var(--color-secondary);
+}
+
+#application-inner select {
+    padding: var(--space-sm);
+    max-width: 200px;
+}
+
+
+
+/* Summary card */
+.summary-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--space-lg);
+    font-weight: 100;
+    font-size: var(--font-xxl);
+    gap: var(--space-md);
+}
+
+
+
+/* Company list card */
+.company-list {
+    list-style: none;
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.company-list li {
+    border: 1px solid var(--color-secondary);
+    padding: var(--space-lg) var(--space-md);
+    border-radius: var(--border-radius-sm);
+}
+
+/* Status panel cards */
+.resolved, .inProgress {
+    overflow-y: scroll;
+}
+
+.resolved-list, .inProgress-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--space-lg);
+    gap: var(--space-md);
+}
+
+.resolved-list li {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-lg);
+    list-style: none;
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--border-radius-sm);
+}
+
+.inProgress-list li {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-lg);
+    list-style: none;
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--border-radius-sm);
+}
+
+.company-panel {
+    font-size: var(--font-xxl);
+}
 
 /* Hidden classes */
 .hidden {
