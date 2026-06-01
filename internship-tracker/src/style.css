@@ -111,7 +111,7 @@ body {
 .summary { grid-area: summary; }
 .resolved { grid-area: resolvedList; }
 .inProgress { grid-area: inProgressList; }
-.company-list { grid-area: companyList; }
+.companies { grid-area: companyList; }
 
 
 

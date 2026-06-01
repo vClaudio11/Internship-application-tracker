@@ -13,6 +13,7 @@ const applicationList = document.querySelector("#application-inner") as HTMLULis
 const applied = document.querySelector("#appliedTo-count") as HTMLParagraphElement;
 const inProgress = document.querySelector("#inProgress-count") as HTMLParagraphElement;
 const completed = document.querySelector("#completed-count") as HTMLParagraphElement;
+const companyList = document.querySelector(".company-list") as HTMLUListElement;
 
 // Define application objects
 type ApplicationStatus = "to apply" | "applied" | "interview" | "offer" | "rejected";
@@ -58,6 +59,7 @@ form.addEventListener('submit', (e) => {
     applications.push(newApplication);
     formInner.classList.add("hidden");
     renderApplications();
+    updateCompanies();
 });
 
 
@@ -89,17 +91,23 @@ function renderApplications(): void {
 
 
 
+// Update summary counters when statuses are changed
 applicationList.addEventListener('change', (e) => {
+    // Define target event as select element 
     const target = e.target as HTMLSelectElement;
     if (target.classList.contains("select-status")) {
+        // Find the id of the list as id is on list not status
         const li = target.closest("li") as HTMLLIElement;
         const id = Number(li.dataset.id);
+
+        // Find matching ID, check first for null event as find could be undefined
         let targetList = applications.find(a => a.id === id);
         if (!targetList) return;
         targetList.status = target.value as ApplicationStatus;
         renderApplications() 
     }
 });
+
 
 
 function updateSummary(): void {
@@ -113,4 +121,17 @@ function updateSummary(): void {
     inProgress.textContent = `In progress: ${inProgressCount}`;
     completed.textContent = `Completed: ${completedCount}`;
     applied.textContent = `Applied to: ${appliedCount}`;
+}
+
+
+
+function updateCompanies(): void {
+    companyList.innerHTML = "";
+
+    for (const application of applications) {
+        const li = document.createElement("li");
+        li.dataset.id = String(application.id);
+        li.innerHTML = `<span>${application.company}</span>`;
+        companyList.appendChild(li);
+    }
 }
