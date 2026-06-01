@@ -65,8 +65,7 @@ form.addEventListener('submit', (e) => {
     applications.push(newApplication);
     formInner.classList.add("hidden");
     renderApplications();
-    updateCompanies();
-    applicationStatus()
+    renderStatusPanels()
 });
 
 
@@ -94,6 +93,7 @@ function renderApplications(): void {
         applicationList.appendChild(li);
     }
     updateSummary();
+    updateCompanies();
 }
 
 
@@ -112,7 +112,7 @@ applicationList.addEventListener('change', (e) => {
         if (!targetList) return;
         targetList.status = target.value as ApplicationStatus;
         renderApplications(); 
-        applicationStatus();
+        renderStatusPanels();
     }
 });
 
@@ -136,17 +136,17 @@ function updateSummary(): void {
 function updateCompanies(): void {
     companyList.innerHTML = "";
 
-    for (const application of applications) {
+    const uniqueCompanies = [...new Set(applications.map(a => a.company))];
+    for (const unique of uniqueCompanies) {
         const li = document.createElement("li");
-        li.dataset.id = String(application.id);
-        li.innerHTML = `<span>${application.company}</span>`;
+        li.innerHTML = `<span>${unique}</span>`;
         companyList.appendChild(li);
     }
 }
 
 
 
-function applicationStatus(): void {
+function renderStatusPanels(): void {
     resolvedList.innerHTML = "";
     inProgressList.innerHTML = "";
 
