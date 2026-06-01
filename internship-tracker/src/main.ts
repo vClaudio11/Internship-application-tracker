@@ -9,6 +9,7 @@ const jobTitle = document.querySelector("#jobTitle") as HTMLInputElement;
 const location = document.querySelector("#location") as HTMLInputElement;
 const deadline = document.querySelector("#deadline") as HTMLInputElement;
 const status = document.querySelector("#status") as HTMLSelectElement;
+const applicationList = document.querySelector("#application-inner") as HTMLUListElement;
 
 // Define application objects
 type ApplicationStatus = "to apply" | "applied" | "interview" | "offer" | "rejected";
@@ -50,9 +51,27 @@ form.addEventListener('submit', (e) => {
         status: status.value as ApplicationStatus
     }
 
+    // Add new application to end of list, hide the form and render the new list
     applications.push(newApplication);
-
     formInner.classList.add("hidden");
+    renderApplications();
 
-    console.log(newApplication);
 });
+
+function renderApplications(): void {
+    // Clear contents of applicationList to prevent duplicates
+    applicationList.innerHTML = "";
+
+
+    
+    for (const application of applications) {
+        const li = document.createElement("li");
+        li.innerHTML = `<span>${application.company}</span>
+                        <span>${application.jobTitle}</span>
+                        <span>${application.location}</span>
+                        <span>${application.deadline}</span>
+                        <span>${application.status}</span>`;
+        applicationList.appendChild(li);
+    }
+    
+}
