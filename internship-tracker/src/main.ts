@@ -2,6 +2,7 @@ import './style.css'
 
 const addButton = document.querySelector("#addApplication") as HTMLButtonElement;
 const cancelButton = document.querySelector("#cancel") as HTMLButtonElement;
+
 const form = document.querySelector(".form") as HTMLFormElement;
 const formInner = document.querySelector(".form-inner") as HTMLDivElement;
 const company = document.querySelector(".company") as HTMLInputElement;
@@ -10,10 +11,15 @@ const location = document.querySelector(".location") as HTMLInputElement;
 const deadline = document.querySelector(".deadline") as HTMLInputElement;
 const status = document.querySelector(".select-status") as HTMLSelectElement;
 const applicationList = document.querySelector("#application-inner") as HTMLUListElement;
+
 const applied = document.querySelector("#appliedTo-count") as HTMLParagraphElement;
 const inProgress = document.querySelector("#inProgress-count") as HTMLParagraphElement;
 const completed = document.querySelector("#completed-count") as HTMLParagraphElement;
+
 const companyList = document.querySelector(".company-list") as HTMLUListElement;
+
+const resolvedList = document.querySelector(".resolved-list") as HTMLUListElement;
+const inProgressList = document.querySelector(".inProgress-list") as HTMLUListElement;
 
 // Define application objects
 type ApplicationStatus = "to apply" | "applied" | "interview" | "offer" | "rejected";
@@ -60,6 +66,7 @@ form.addEventListener('submit', (e) => {
     formInner.classList.add("hidden");
     renderApplications();
     updateCompanies();
+    applicationStatus()
 });
 
 
@@ -104,7 +111,8 @@ applicationList.addEventListener('change', (e) => {
         let targetList = applications.find(a => a.id === id);
         if (!targetList) return;
         targetList.status = target.value as ApplicationStatus;
-        renderApplications() 
+        renderApplications(); 
+        applicationStatus();
     }
 });
 
@@ -133,5 +141,34 @@ function updateCompanies(): void {
         li.dataset.id = String(application.id);
         li.innerHTML = `<span>${application.company}</span>`;
         companyList.appendChild(li);
+    }
+}
+
+
+
+function applicationStatus(): void {
+    resolvedList.innerHTML = "";
+    inProgressList.innerHTML = "";
+
+    // Check whether status is completed or in progress
+    for (const application of applications) {
+        // Create list depending on status 
+        if (application.status === "rejected" || application.status === "offer") {
+            const li = document.createElement("li");
+            li.dataset.id = String(application.id);
+            li.innerHTML = `<span>${application.jobTitle}</span>
+                            <span>${application.company}</span>
+                            <span>${application.location}</span>
+                            <span>${application.deadline}</span>`;
+            resolvedList.appendChild(li);
+        } else {
+            const li = document.createElement("li");
+            li.dataset.id = String(application.id);
+            li.innerHTML = `<span>${application.jobTitle}</span>
+                            <span>${application.company}</span>
+                            <span>${application.location}</span>
+                            <span>${application.deadline}</span>`;
+            inProgressList.appendChild(li);
+        }
     }
 }
