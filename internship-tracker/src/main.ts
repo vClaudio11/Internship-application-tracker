@@ -1,4 +1,9 @@
 import './style.css'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+    base: '/internship-tracker/'
+})
 
 const addButton = document.querySelector("#addApplication") as HTMLButtonElement;
 const cancelButton = document.querySelector("#cancel") as HTMLButtonElement;
