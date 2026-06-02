@@ -56,6 +56,7 @@ Open `localhost:5173` in your browser.
 - [ ] Allow each application to open a new page to store matching CVs or interview materials
 - [ ] Restyle and update UI/UX design
 - [ ] add local storage for memory storage
+- [ ] add separate dashboard for individual applications
  
 ---
 
